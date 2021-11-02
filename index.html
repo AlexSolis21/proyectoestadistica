@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Proyecto Solis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://codepen.io/andytran/pen/vLmRVp.js"></script>
+</head>
+<body>
+    
+    <script src="form.js"></script>
+
+<div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+        <div class="form-header">
+            <h1>Probabilidad Distribucion Normal</h1>
+        </div>
+        <div class="form-content">
+
+                <div class="form-group"><label for="username">Media</label><input type="number" id="media" required="required" /></div>
+                <div class="form-group"><label for="password">Desviacion Estandar</label><input type="number" id="desviacion"required="required" /></div>
+                <div class="form-group">
+                    <label for="password">Probabilidad: </label>
+                </div>
+                <div class="form-group probabilidad">
+                    P(x <=<input type="number" id="probabilidad" required="required"/>)
+                </div>
+                <div class="form-group" id="valorzcampo">
+                    <label for="password">Valor Z: </label>
+                    <input type="number" id="valorz" >
+                </div>
+
+                <div class="form-group" id="funcioncampo">
+                    <label for="password">Funcion Generada: </label>
+                    <input type="text" id="funcion">
+
+                    <div class="form-group">
+                        <label for="password">Graficar: </label>
+                    </div>
+
+
+                    <iframe src="https://www.geogebra.org/calculator/kpgkde5q?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+                </div>
+
+
+
+
+                
+                <div class="form-group"><button type="submit" onclick=" calcularz() ">Calcular</button></div>
+
+        </div>
+    </div>
+    <div class="form-panel two">
+        <div class="form-header">
+            <h1>Caratula</h1>
+        </div>
+        <div class="form-content">
+            <form>
+                <div class="form-group"><label for="username">Nombre</label>
+                
+                </div>
+                <div class="form-group"><label for="password">Carnet</label>
+                
+                </div>
+                <div class="form-group"><label for="cpassword">Universidad</label>
+                
+                </div>
+                <div class="form-group"><label for="email">Curso</label>
+                
+                </div>
+                <div class="form-group"><label for="email">Link Github</label>
+                
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var media = document.getElementById("media"),
+        desviacion = document.getElementById("desviacion"),
+        probabilidad = document.getElementById("probabilidad"),
+        campoz = document.getElementById("valorz"),
+        valorzcampo = document.getElementById("valorzcampo"),
+        funcion = document.getElementById("funcion"),
+        funcioncampo = document.getElementById("funcioncampo"),
+        valorz = 0
+
+
+    function calcularz(){
+
+        valorz = (probabilidad.value - media.value)/desviacion.value
+
+        campoz.value = valorz
+        funcion.value = "f(x) = x < " + valorz
+        funcioncampo.style.display = "block"
+        valorzcampo.style.display = "block"
+
+    }
+
+
+
+
+
+</script>
+
+    
+</body>
+</html>
